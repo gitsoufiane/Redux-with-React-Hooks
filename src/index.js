@@ -6,7 +6,8 @@ import { Provider } from 'react-redux'
 import { store } from './store';
 
 ReactDOM.render(
-    <Provider>
-        <ExchangeRate store={store} />
+    <Provider store={store}>
+        <ExchangeRate />
     </Provider>,
-    document.getElementById("root"));
+    document.getElementById("root")
+);

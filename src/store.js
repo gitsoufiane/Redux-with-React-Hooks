@@ -1,10 +1,18 @@
 import { createStore } from 'redux';
 
 const initialState = {
-    amount: '12.00',
-    currencyCode: 'USD'
+    amount: '13.00',
+    currencyCode: 'USD',
 }
-const reducers = (state=initialState,action) => {
-    return state;
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case 'amountChanged':
+            return { ...state, amount: action.payload }
+        case 'currencyCodeChanged':
+            return { ...state, currencyCode: action.payload }
+        default:
+            return state;
+    }
+
 }
-export const store = createStore(reducers)
+export const store = createStore(reducer)
