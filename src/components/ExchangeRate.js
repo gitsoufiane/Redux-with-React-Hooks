@@ -7,11 +7,8 @@ import { useSelector } from 'react-redux'
 const supportedCurrencies = ["USD", "EUR", "JPY", "CAD", "GBP", "MXN"];
 
 export function ExchangeRate() {
-  // const [amount, setAmount] = useState("1.50");
-  // const [currencyCode, setCurrencyCode] = useState("USD");
   const amount = useSelector(state => state.amount);
   const currencyCode = useSelector(state => state.currencyCode);
-
 
   const [currencyData, setCurrencyData] = useState({ USD: 1.0 });
 
@@ -21,16 +18,6 @@ export function ExchangeRate() {
       setCurrencyData(rates);
     });
   }, [currencyCode]);
-
-  // const handleCurrencyCode = useCallback(
-  //   (e) => setCurrencyCode(e.target.value),
-  //   []
-  // );
-
-  // const handleAmountChange = useCallback((e) => {
-  //   let newAmount = e.target.value;
-  //   setAmount(newAmount);
-  // }, []);
 
   return (
     <>
