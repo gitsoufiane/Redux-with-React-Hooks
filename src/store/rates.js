@@ -46,3 +46,10 @@ export const changeCurrencyCode = (code) => (dispatch) => {
     });
   });
 };
+
+// thunk
+export function getInitialRates(dispatch, getState) {
+  const state = getState();
+  const currencyCode = getCurrencyCode(state);
+  dispatch(changeCurrencyCode(currencyCode));
+}
