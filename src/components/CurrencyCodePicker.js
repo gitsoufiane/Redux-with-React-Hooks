@@ -1,12 +1,11 @@
-import { useDispatch } from 'react-redux';
-export function CurrencyCodePicker({
-  supportedCurrencies,
-  currencyCode,
-}) {
-  const dispatch = useDispatch()
+import { useDispatch } from "react-redux";
+import { changeCurrencyCode } from "../store/rates";
+
+export function CurrencyCodePicker({ supportedCurrencies, currencyCode }) {
+  const dispatch = useDispatch();
   const onChange = (e) => {
-    dispatch({type:'RatecurrencyCodeChanged',payload:e.target.value})
-  }
+    dispatch(changeCurrencyCode(e.target.value));
+  };
   return (
     <select className="currencyCode" value={currencyCode} onChange={onChange}>
       {supportedCurrencies.map((code) => (
